@@ -242,31 +242,45 @@
         <!-- Report Section -->
         <div id="report-section" class="section hidden">
             <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8">
-                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">แจ้งซ่อมเครื่องจักร</h2>
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">🛠 แจ้งซ่อมเครื่องจักร</h2>
                 <form id="repair-form" class="space-y-4 sm:space-y-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                         <div class="lg:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">สถานที่ตั้งของเครื่อง *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">🗺 สถานที่ตั้งของเครื่อง</label>
                             <div class="flex gap-2">
-                                <input type="text" id="machine-name" required class="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base">
-                                <button type="button" onclick="scanQRCode('machine-name')" class="px-3 sm:px-4 py-2 sm:py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors whitespace-nowrap text-sm sm:text-base">
-                                    <span class="hidden sm:inline">📱 สแกน QR</span>
-                                    <span class="sm:hidden">📱</span>
-                                </button>
-                            </div>
+<select id="machine-name" required
+  class="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base">
+  <option value="" disabled selected>-- กรุณาเลือก --</option>
+  <option value="CUTTING">CUTTING</option>
+  <option value="PERSS">PERSS</option>
+  <option value="SKIVING">SKIVING</option>
+  <option value="GULE">GULE</option>
+  <option value="WELDER">WELDER</option>
+  <option value="FB-RH-J30A">FB-RH-J30A</option>
+  <option value="FB-LH-J30A">FB-LH-J30A</option>
+  <option value="FC-RH-J30A">FC-RH-J30A</option>
+  <option value="FC-LH-J30A">FC-LH-J30A</option>
+  <option value="RB-RH-J30A">RB-RH-J30A</option>
+  <option value="RB-LH-J30A">RB-LH-J30A</option>
+  <option value="RC-RH-J30A">RC-RH-J30A</option>
+  <option value="RC-LH-J30A">RC-LH-J30A</option>
+  <option value="RB-RH-J30S">RB-RH-J30S</option>
+  <option value="RB-LH-J30S">RB-LH-J30S</option>
+  <option value="RC-RH-J30S">RC-RH-J30S</option>
+  <option value="RC-RL-J30S">RC-RL-J30S</option>
+  <option value="FB-J69P">FB-J69P</option>
+  <option value="FC-J69P">FC-J69P</option>
+  <option value="RB-J69P">RB-J69P</option>
+  <option value="RC-J69P">RC-J69P</option>
+</select>
+</div>
                         </div>
                         <div class="lg:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">รหัสเครื่องจักร</label>
-                            <div class="flex gap-2">
-                                <input type="text" id="machine-code" class="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base">
-                                <button type="button" onclick="scanQRCode('machine-code')" class="px-3 sm:px-4 py-2 sm:py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors whitespace-nowrap text-sm sm:text-base">
-                                    <span class="hidden sm:inline">📱 สแกน QR</span>
-                                    <span class="sm:hidden">📱</span>
-                                </button>
-                            </div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">👇รหัสเครื่องจักร</label>
+                            <div class="flex gap-2"><input type="text" id="machine-code" class="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base" inputmode="numeric" pattern="[0-9]*" placeholder="กรอกเฉพาะตัวเลข เช่น 1234"></div>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">แผนก *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">🏭แผนก *</label>
                             <select id="department" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base">
                                 <option value="">เลือกแผนก</option>
                                 <option value="production">✂แผนกผลิต Cutting</option>
@@ -278,7 +292,7 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">ระดับความเร่งด่วน *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">🚦ระดับความเร่งด่วน *</label>
                             <select id="priority" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base">
                                 <option value="">เลือกระดับ</option>
                                 <option value="low">🔵ต่ำ</option>
@@ -288,12 +302,12 @@
                             </select>
                         </div>
                         <div class="lg:col-span-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">ผู้แจ้ง *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">🙍‍♂️ผู้แจ้ง *</label>
                             <input type="text" id="reporter" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">รายละเอียดปัญหา *</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">👨‍💻รายละเอียดปัญหา *</label>
                         <textarea id="problem-description" required rows="4" class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base" placeholder="อธิบายปัญหาที่พบ อาการ และสาเหตุที่คาดว่าจะเป็น"></textarea>
                     </div>
                     <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4">
@@ -704,170 +718,6 @@ function generateUniqueId() {
             renderHistoryReports();
         });
 
-        // QR Code Scanner Function
-        function scanQRCode(targetFieldId) {
-            // Check if browser supports camera
-            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-                alert('เบราว์เซอร์ของคุณไม่รองรับการใช้กล้อง กรุณาใช้เบราว์เซอร์ที่ทันสมัยกว่านี้');
-                return;
-            }
-
-            // Create QR scanner modal
-            const modal = document.createElement('div');
-            modal.id = 'qr-scanner-modal';
-            modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50';
-            modal.innerHTML = `
-                <div class="bg-white rounded-xl p-6 max-w-md mx-4 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-4">สแกน QR Code</h3>
-                    <div class="relative mb-4">
-                        <video id="qr-video" class="w-full h-64 bg-black rounded-lg"></video>
-                        <div class="absolute inset-0 border-2 border-green-500 rounded-lg pointer-events-none">
-                            <div class="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-green-500"></div>
-                            <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-green-500"></div>
-                            <div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-green-500"></div>
-                            <div class="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-green-500"></div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 mb-4">วางกล้องให้ QR Code อยู่ในกรอบ</p>
-                    <div class="flex justify-center space-x-4">
-                        <button onclick="stopQRScanner()" class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium">
-                            ยกเลิก
-                        </button>
-                        <button onclick="manualInput('${targetFieldId}')" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium">
-                            กรอกเอง
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // Start camera
-            startCamera(targetFieldId);
-        }
-
-        function startCamera(targetFieldId) {
-            const video = document.getElementById('qr-video');
-            
-            navigator.mediaDevices.getUserMedia({ 
-                video: { 
-                    facingMode: 'environment',
-                    width: { ideal: 1280 },
-                    height: { ideal: 720 }
-                } 
-            })
-            .then(stream => {
-                video.srcObject = stream;
-                video.play();
-                
-                // Start QR detection
-                detectQRCode(video, stream, targetFieldId);
-            })
-            .catch(err => {
-                console.error('Error accessing camera:', err);
-                alert('ไม่สามารถเข้าถึงกล้องได้ กรุณาอนุญาตการใช้กล้องในเบราว์เซอร์');
-                stopQRScanner();
-            });
-        }
-
-        function detectQRCode(video, stream, targetFieldId) {
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-            
-            function scan() {
-                if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    
-                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                    
-                    // Simple QR detection simulation
-                    // In real implementation, you would use a QR code library like jsQR
-                    try {
-                        // Simulate QR code detection
-                        const qrResult = simulateQRDetection();
-                        if (qrResult) {
-                            // Fill the target field
-                            document.getElementById(targetFieldId).value = qrResult;
-                            
-                            // Stop camera and close modal
-                            stream.getTracks().forEach(track => track.stop());
-                            stopQRScanner();
-                            
-                            // Show success message
-                            showQRSuccess(qrResult);
-                            return;
-                        }
-                    } catch (error) {
-                        console.log('QR detection error:', error);
-                    }
-                }
-                
-                // Continue scanning
-                if (document.getElementById('qr-scanner-modal')) {
-                    requestAnimationFrame(scan);
-                }
-            }
-            
-            scan();
-        }
-
-        function simulateQRDetection() {
-            // Simulate QR code detection with random success
-            // In real implementation, this would be replaced with actual QR detection
-            if (Math.random() > 0.95) { // 5% chance of "detecting" QR code
-                const sampleData = [
-                    'เครื่องตัดเลเซอร์ CNC-001',
-                    'สายพานลำเลียง CONV-A1', 
-                    'เครื่องอัดอากาศ AIR-001',
-                    'เครื่องพิมพ์ 3D-001',
-                    'รถยกไฟฟ้า LIFT-002'
-                ];
-                return sampleData[Math.floor(Math.random() * sampleData.length)];
-            }
-            return null;
-        }
-
-        function stopQRScanner() {
-            const modal = document.getElementById('qr-scanner-modal');
-            if (modal) {
-                const video = document.getElementById('qr-video');
-                if (video && video.srcObject) {
-                    video.srcObject.getTracks().forEach(track => track.stop());
-                }
-                modal.remove();
-            }
-        }
-
-        function manualInput(targetFieldId) {
-            const input = prompt('กรุณากรอกข้อมูลด้วยตนเอง:');
-            if (input && input.trim()) {
-                document.getElementById(targetFieldId).value = input.trim();
-            }
-            stopQRScanner();
-        }
-
-        function showQRSuccess(data) {
-            const successDiv = document.createElement('div');
-            successDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform transition-all duration-300';
-            successDiv.innerHTML = `
-                <div class="flex items-center space-x-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <span>สแกน QR Code สำเร็จ!</span>
-                </div>
-            `;
-            
-            document.body.appendChild(successDiv);
-            
-            setTimeout(() => {
-                successDiv.style.transform = 'translateX(100%)';
-                setTimeout(() => successDiv.remove(), 300);
-            }, 2000);
-        }
-
         // Navigation
         function showSection(section) {
             // Hide all sections
@@ -901,7 +751,7 @@ function generateUniqueId() {
             const formData = {
                 id: generateUniqueId(),
                 machineName: document.getElementById('machine-name').value,
-                machineCode: document.getElementById('machine-code').value,
+                machineCode: formatMachineCode(document.getElementById("machine-code").value),
                 department: document.getElementById('department').value,
                 priority: document.getElementById('priority').value,
                 reporter: document.getElementById('reporter').value,
@@ -2224,5 +2074,22 @@ if (typeof editReport === 'function') {
   // fallback
   document.addEventListener('DOMContentLoaded', checkEditRequired);
 }
+
+/* === Machine Code helpers: digits-only + NC.NO prefix === */
+function onlyDigits(v){ return (v||'').toString().replace(/\D+/g,''); }
+function formatMachineCode(raw){
+  const d = onlyDigits(raw);
+  return d ? 'NC.NO' + d : '';
+}
+// Restrict typing in machine-code field to digits, show digits only while typing
+document.addEventListener('input', (e)=>{
+  if(e && e.target && e.target.id === 'machine-code'){
+    const el = e.target;
+    const caret = el.selectionStart;
+    const dig = onlyDigits(el.value);
+    el.value = dig;
+    try{ el.setSelectionRange(caret, caret); }catch(_){}
+  }
+}, true);
 </script></body>
 </html>
